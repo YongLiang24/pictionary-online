@@ -24,13 +24,28 @@ componentDidMount(){
         <div>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/draw">Draw</Link></li>
+            <li><Link to="/guess">Guess</Link></li>
           </ul>
-
           <hr />
+          <Route exact path="/" />
+          <Route path="/draw"
+            render={(props)=>(
+              <div>
+                <AnswerForm />
+                <h1>Testing routes</h1>
+              </div>
+            )}
+          />
 
-          <Route exact path="/" component={AnswerForm} />
-          <Route path="/about" component={GuessForm} />
+          <Route path="/guess"
+            render={(props)=>(
+              <div>
+                <GuessForm />
+                <h1>Testing Guess routes</h1>
+              </div>
+            )}
+          />
         </div>
       </HashRouter>
     );
