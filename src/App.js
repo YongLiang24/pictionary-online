@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
+
 import AnswerForm from './components/AnswerForm';
 import GuessForm from './components/GuessForm';
 import HomePage from './components/HomePage';
+import Canvas from './components/Canvas';
 
 class App extends Component {
   state={
@@ -36,6 +38,7 @@ componentDidMount(){
           <Route path="/draw"
             render={(props)=>(
               <div>
+                <Canvas isDrawing={true} />
                 <AnswerForm />
 
               </div>
@@ -45,8 +48,8 @@ componentDidMount(){
           <Route path="/guess"
             render={(props)=>(
               <div>
+                <Canvas isDrawing={false} />
                 <GuessForm />
-                
               </div>
             )}
           />
