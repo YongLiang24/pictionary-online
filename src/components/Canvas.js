@@ -48,7 +48,7 @@ class Canvas extends React.Component {
        prevX: 1,
        isClear: "true"
      }
-     fetch('http://pictionaries.herokuapp.com/canvas/1', {
+     fetch('https://pictionaries.herokuapp.com/canvas/1', {
        method: 'PATCH',
        headers: HEADERS,
        body: JSON.stringify(movement)
@@ -61,7 +61,7 @@ class Canvas extends React.Component {
   }
 
   intervalCanvasDraw = () =>{
-    fetch('http://pictionaries.herokuapp.com/canvas')
+    fetch('https://pictionaries.herokuapp.com/canvas')
     .then(resp => resp.json())
     .then(json =>{
       // console.log('the returned movement',json[0])
@@ -91,7 +91,7 @@ class Canvas extends React.Component {
       currYArray: this.state.currYArray,
     }
 
-    fetch('http://pictionaries.herokuapp.com/canvas/1', {
+    fetch('https://pictionaries.herokuapp.com/canvas/1', {
       method: 'PATCH',
       headers: HEADERS,
       body: JSON.stringify(movement)
@@ -169,7 +169,7 @@ class Canvas extends React.Component {
       prevX: 1,
       isClear: "true"
     }
-    fetch('http://pictionaries.herokuapp.com/canvas/1', {
+    fetch('https://pictionaries.herokuapp.com/canvas/1', {
       method: 'PATCH',
       headers: HEADERS,
       body: JSON.stringify(movement)

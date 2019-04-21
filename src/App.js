@@ -11,7 +11,7 @@ class App extends Component {
     canvas: ''
   }
 componentDidMount(){
-  fetch("http://pictionaries.herokuapp.com/game")
+  fetch("https://pictionaries.herokuapp.com/game")
   .then(resp =>resp.json())
   .then(json=>{
     console.log(json)
