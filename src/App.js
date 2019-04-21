@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
 import AnswerForm from './components/AnswerForm';
 import GuessForm from './components/GuessForm';
+import HomePage from './components/HomePage';
 
 class App extends Component {
   state={
@@ -22,18 +23,21 @@ componentDidMount(){
     return (
       <HashRouter basename="/">
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/draw">Draw</Link></li>
-            <li><Link to="/guess">Guess</Link></li>
-          </ul>
+          <h2>Pictionary Online</h2>
+          <Link to="/">Home</Link>
           <hr />
-          <Route exact path="/" />
+          <Route exact path="/"
+            render={(props)=>(
+              <div>
+                <HomePage />
+              </div>
+            )}
+          />
           <Route path="/draw"
             render={(props)=>(
               <div>
                 <AnswerForm />
-                <h1>Testing routes</h1>
+
               </div>
             )}
           />
@@ -42,7 +46,7 @@ componentDidMount(){
             render={(props)=>(
               <div>
                 <GuessForm />
-                <h1>Testing Guess routes</h1>
+                
               </div>
             )}
           />
