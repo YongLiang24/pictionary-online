@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter, Route, Link } from "react-router-dom";
 import AnswerForm from './components/AnswerForm';
 import GuessForm from './components/GuessForm';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   state={
@@ -22,17 +20,19 @@ componentDidMount(){
 
   render() {
     return (
-      <div >
-        <Router>
-          <Route exact path="/" render={AnswerForm} />
-          <Route exact path="/guess" render={GuessForm} />
+      <HashRouter basename="/">
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
 
-        </Router>)
+          <hr />
 
-        <p>{this.state.canvas}</p>
-
-
-      </div>
+          <Route exact path="/" component={AnswerForm} />
+          <Route path="/about" component={GuessForm} />
+        </div>
+      </HashRouter>
     );
   }
 }
