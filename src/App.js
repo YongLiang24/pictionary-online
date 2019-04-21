@@ -20,6 +20,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <input type='text' />
       </div>
     );
   }
