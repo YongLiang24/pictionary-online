@@ -105,8 +105,8 @@ class Canvas extends React.Component {
         (state) => {return {
           prevX: state.currX,
           prevY: state.currY,
-          currX: e.Touch.clientX - state.canvas.offsetLeft,
-          currY: e.Touch.clientY - state.canvas.offsetTop,
+          currX: e.clientX - state.canvas.offsetLeft,
+          currY: e.clientY - state.canvas.offsetTop,
           flag: true,
           dot_flag: true
         }},
@@ -130,8 +130,8 @@ class Canvas extends React.Component {
           return {
             prevX: state.currX,
             prevY: state.currY,
-            currX: e.Touch.clientX - state.canvas.offsetLeft,
-            currY: e.Touch.clientY - state.canvas.offsetTop,
+            currX: e.clientX - state.canvas.offsetLeft,
+            currY: e.clientY - state.canvas.offsetTop,
           }
         },
         () => {
