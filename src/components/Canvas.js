@@ -183,6 +183,51 @@ class Canvas extends React.Component {
     setTimeout(window.location.reload(), 2000)
   }
 
+  handleTouchStart = (e)=>{
+    this.setState(
+      (state) => {return {
+        prevX: state.currX,
+        prevY: state.currY,
+        currX: e.Touch.clientX - state.canvas.offsetLeft,
+        currY: e.Touch.clientY - state.canvas.offsetTop,
+        flag: true,
+        dot_flag: true
+      }},
+      () => {
+        if (this.state.dot_flag) {
+          this.state.ctx.beginPath();
+          this.state.ctx.fillStyle = this.state.x;
+          this.state.ctx.fillRect(this.state.currX, this.state.currY, 2, 2);
+          this.state.ctx.closePath();
+          this.setState({dot_flag: false})
+        }
+      }
+    )
+  }
+
+  handleTouchMove =(e) =>{
+    if(this.state.flag){
+      this.setState(
+        (state) => {
+          return {
+            prevX: state.currX,
+            prevY: state.currY,
+            currX: e.clientX - state.canvas.offsetLeft,
+            currY: e.clientY - state.canvas.offsetTop,
+          }
+        },
+        () => {
+          this.draw()
+        }
+      )
+    }
+  }
+
+  handleTouchEnd = (e)=>{
+    this.setState({flag: false})
+    this.sendDrawData()
+  }
+
   render() {
 
     if (this.props.isDrawing) {
@@ -195,11 +240,12 @@ class Canvas extends React.Component {
             onMouseUp={(event) => this.handleMouseMoves(event, 'up')}
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
 
-            ontouchstart={(event) => this.handleMouseMoves(event, 'down')}
-            ontouchmove={(event) => this.handleMouseMoves(event, 'move')}
-            ontouchend={(event) => this.handleMouseMoves(event, 'up')}
+            ontouchstart={this.handleTouchStart}
+            ontouchmove={this.handleTouchMove}
+            ontouchend={this.handleTouchEnd}
 
           />
+          <br/>
           <button onClick={this.handleClear}>Reset</button>
         </div>
       )
