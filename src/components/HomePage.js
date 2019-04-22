@@ -4,16 +4,16 @@ const HomePage = (props) => {
 
   return (
     <div id='playSelect'>
-      <Link to="/guess">
-        <div className='homeCard'>
+      <div className='homeCard'>
+        <Link to="/guess">
           <h4>Play as a Guess Role</h4>
-        </div>
-      </Link>
-      <Link to="/draw">
-        <div className='homeCard'>
+        </Link>
+      </div>
+      <div className='homeCard'>
+        <Link to="/draw">
           <h4>Play as a Draw Role</h4>
+        </Link>
         </div>
-      </Link>
     </div>
   )
 }

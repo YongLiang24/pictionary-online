@@ -14,7 +14,7 @@ class App extends Component {
           <Fragment>
             <div id='navBar'>
               <h1>Pictionary Online</h1>
-              <Link to="/"><h2 id='home'>Home</h2></Link>
+              <h2 id='home'><Link to="/">Home</Link></h2>
               <hr />
             </div>
             <Route exact path="/"
