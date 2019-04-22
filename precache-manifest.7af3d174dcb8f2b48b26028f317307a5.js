@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "05e8b090d1989ee18a1d",
+    "revision": "d2aab926f4f1110118f4",
     "url": "/pictionary-online/static/css/main.aaa0168b.chunk.css"
   },
   {
-    "revision": "05e8b090d1989ee18a1d",
-    "url": "/pictionary-online/static/js/main.6260ee17.chunk.js"
+    "revision": "d2aab926f4f1110118f4",
+    "url": "/pictionary-online/static/js/main.b9b24a86.chunk.js"
   },
   {
     "revision": "3f32f27d462ac716118d",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/pictionary-online/static/js/2.abb13db6.chunk.js"
   },
   {
-    "revision": "219b413a49aa00fbc23148e6351afa5c",
+    "revision": "1ff320398640ea8ec2ff00b02ec826d3",
     "url": "/pictionary-online/index.html"
   }
 ];

@@ -1,13 +1,13 @@
 {
   "main.css": "/pictionary-online/static/css/main.aaa0168b.chunk.css",
-  "main.js": "/pictionary-online/static/js/main.6260ee17.chunk.js",
-  "main.js.map": "/pictionary-online/static/js/main.6260ee17.chunk.js.map",
+  "main.js": "/pictionary-online/static/js/main.b9b24a86.chunk.js",
+  "main.js.map": "/pictionary-online/static/js/main.b9b24a86.chunk.js.map",
   "runtime~main.js": "/pictionary-online/static/js/runtime~main.626bfe4c.js",
   "runtime~main.js.map": "/pictionary-online/static/js/runtime~main.626bfe4c.js.map",
   "static/js/2.abb13db6.chunk.js": "/pictionary-online/static/js/2.abb13db6.chunk.js",
   "static/js/2.abb13db6.chunk.js.map": "/pictionary-online/static/js/2.abb13db6.chunk.js.map",
   "index.html": "/pictionary-online/index.html",
-  "precache-manifest.c894aa8950ebdd7a0208b16d3eadb243.js": "/pictionary-online/precache-manifest.c894aa8950ebdd7a0208b16d3eadb243.js",
+  "precache-manifest.7af3d174dcb8f2b48b26028f317307a5.js": "/pictionary-online/precache-manifest.7af3d174dcb8f2b48b26028f317307a5.js",
   "service-worker.js": "/pictionary-online/service-worker.js",
   "static/css/main.aaa0168b.chunk.css.map": "/pictionary-online/static/css/main.aaa0168b.chunk.css.map"
 }
