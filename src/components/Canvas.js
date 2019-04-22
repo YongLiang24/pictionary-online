@@ -42,7 +42,7 @@ class Canvas extends React.Component {
         this.state.ctx.fillStyle = 'lightgray';
         this.state.ctx.fillRect(20, 20, this.state.canvas.width, this.state.canvas.height)}
     )
-     setInterval(this.intervalCanvasDraw, 4000)
+     setInterval(this.intervalCanvasDraw, 2000)
 
      const movement = {
        prevX: 1,
@@ -193,16 +193,12 @@ class Canvas extends React.Component {
             onMouseUp={(event) => this.handleMouseMoves(event, 'up')}
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
           />
-          <button onClick={this.handleClear}>ClearImage</button>
+          <button onClick={this.handleClear}>Reset</button>
         </Fragment>
       )
     } else {
       return (
         <Fragment>
-          {/* <ActionCableConsumer
-            channel={{channel: 'CanvasDrawingsChannel', id:`${this.props.gameId}`}}
-            onReceived={this.handleReceivedDrawing}
-          /> */}
           <canvas
             ref={this.canvasRef}
           />

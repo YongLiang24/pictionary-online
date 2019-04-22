@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
 
-import AnswerForm from './components/AnswerForm';
+import GuessList from './components/GuessList';
 import GuessForm from './components/GuessForm';
 import HomePage from './components/HomePage';
 import Canvas from './components/Canvas';
@@ -25,21 +25,23 @@ componentDidMount(){
     return (
       <HashRouter basename="/">
         <div>
-          <h2>Pictionary Online</h2>
-          <Link to="/">Home</Link>
-          <hr />
-          <Route exact path="/"
-            render={(props)=>(
-              <div>
-                <HomePage />
-              </div>
-            )}
-          />
+          <container>
+            <h2>Pictionary Online</h2>
+            <Link to="/">Home</Link>
+            <hr />
+            <Route exact path="/"
+              render={(props)=>(
+                <div>
+                  <HomePage />
+                </div>
+              )}
+            />
+          </container>
           <Route path="/draw"
             render={(props)=>(
               <div>
                 <Canvas isDrawing={true} />
-                <AnswerForm />
+                <GuessList />
 
               </div>
             )}
