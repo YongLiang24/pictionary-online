@@ -23,7 +23,6 @@ updateRejectedList = ()=>{
 
     if(json.is_won){
        alert('We have a winner, thank you for playing.')
-       setTimeout(window.location.reload(), 4000)
      }
   })
 
@@ -42,7 +41,7 @@ handleGuessForm = (ev)=>{
 }
   render(){
     return (
-      <div>
+      <div className="canvas">
         <div id='sendGuessForm'>
           <form onSubmit={this.handleGuessForm}>
             <label><strong>Send Guess:</strong>

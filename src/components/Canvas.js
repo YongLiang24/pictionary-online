@@ -20,7 +20,7 @@ class Canvas extends React.Component {
       dot_flag: false,
       x: 'black',
       y: 2,
-      width: 400, // make this a prop
+      width: 370, // make this a prop
       height: 400, // make this a prop
       emptyArray : []
     }
@@ -185,7 +185,7 @@ class Canvas extends React.Component {
   render() {
     if (this.props.isDrawing) {
       return (
-        <Fragment>
+        <div className="canvas">
           <canvas
             ref={this.canvasRef}
             onMouseMove={(event) => this.handleMouseMoves(event, 'move')}
@@ -194,15 +194,15 @@ class Canvas extends React.Component {
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
           />
           <button onClick={this.handleClear}>Reset</button>
-        </Fragment>
+        </div>
       )
     } else {
       return (
-        <Fragment>
+        <div className="canvas">
           <canvas
             ref={this.canvasRef}
           />
-        </Fragment>
+        </div>
       )
     }
   }}

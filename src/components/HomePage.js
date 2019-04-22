@@ -3,15 +3,17 @@ import { HashRouter, Route, Link } from "react-router-dom";
 const HomePage = (props) => {
 
   return (
-    <div>
-      <div className='homeCard'>
-        <h4>Play as Guess</h4>
-        <Link to="/guess">Guess</Link>
-      </div>
-      <div className='homeCard'>
-        <h4>Play as Draw</h4>
-        <Link to="/draw">Draw</Link>
-      </div>
+    <div id='playSelect'>
+      <Link to="/guess">
+        <div className='homeCard'>
+          <h4>Play as a Guess Role</h4>
+        </div>
+      </Link>
+      <Link to="/draw">
+        <div className='homeCard'>
+          <h4>Play as a Draw Role</h4>
+        </div>
+      </Link>
     </div>
   )
 }

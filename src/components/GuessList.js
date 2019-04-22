@@ -29,7 +29,6 @@ class GuessList extends Component{
       })
       if(json.is_won){
          alert('We have a winner, thank you for playing.')
-         setTimeout(window.location.reload(), 5000)
        }
     })
 
@@ -57,7 +56,7 @@ class GuessList extends Component{
 
   render(){
     return(
-      <div>
+      <div className="canvas">
         <h2>Guesses:</h2>
         <ul>
           {

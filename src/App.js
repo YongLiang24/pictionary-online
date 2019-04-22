@@ -1,62 +1,51 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { HashRouter, Route, Link } from "react-router-dom";
-
+import './App.css';
 import GuessList from './components/GuessList';
 import GuessForm from './components/GuessForm';
 import HomePage from './components/HomePage';
 import Canvas from './components/Canvas';
 
 class App extends Component {
-  state={
-    canvas: ''
-  }
-componentDidMount(){
-  fetch("https://pictionaries.herokuapp.com/game")
-  .then(resp =>resp.json())
-  .then(json=>{
-    console.log(json)
-    this.setState({
-      canvas: json[0].name
-    })
-  })
-}
-
   render() {
     return (
-      <HashRouter basename="/">
-        <div>
-          <container>
-            <h2>Pictionary Online</h2>
-            <Link to="/">Home</Link>
-            <hr />
+      <div>
+        <HashRouter basename="/">
+          <Fragment>
+            <div id='navBar'>
+              <h1>Pictionary Online</h1>
+              <Link to="/"><h2 id='home'>Home</h2></Link>
+              <hr />
+            </div>
             <Route exact path="/"
               render={(props)=>(
-                <div>
+                <div id='HomePage'>
                   <HomePage />
                 </div>
               )}
             />
-          </container>
-          <Route path="/draw"
-            render={(props)=>(
-              <div>
-                <Canvas isDrawing={true} />
-                <GuessList />
 
-              </div>
-            )}
-          />
+            <Route path="/draw"
+              render={(props)=>(
+                <div>
+                  <Canvas isDrawing={true} />
+                  <GuessList />
 
-          <Route path="/guess"
-            render={(props)=>(
-              <div>
-                <Canvas isDrawing={false} />
-                <GuessForm />
-              </div>
-            )}
-          />
-        </div>
-      </HashRouter>
+                </div>
+              )}
+            />
+
+            <Route path="/guess"
+              render={(props)=>(
+                <div>
+                  <Canvas isDrawing={false} />
+                  <GuessForm />
+                </div>
+              )}
+            />
+          </Fragment>
+        </HashRouter>
+      </div>
     );
   }
 }

@@ -1,0 +1,40 @@
+#navBar{
+  background-color: Wheat ;
+  position: relative;
+  top:-22px;
+  text-align: center;
+  font-style: italic;
+}
+
+body{
+  background-color: Azure;
+}
+
+#playSelect{
+  position: relative;
+  text-align:center;
+  margin:auto;
+}
+.homeCard{
+  margin: auto;
+  width: 30%;
+  border: 3px solid steelBlue ;
+  margin-top:20px;
+  border-radius: 20px;
+
+}
+.homeCard:hover{
+  box-shadow: 0 13px 26px 0 black;
+}
+#home{
+  margin: auto;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+#home:hover{
+  box-shadow: 0 13px 26px 0 black;
+}
+
+.canvas{
+  text-align: center;
+}
