@@ -36,16 +36,14 @@ class Canvas extends React.Component {
     canvas.height = this.state.height;
 
 //mobile touch starts
-    canvas.addEventListener('touchstart', function(e){
-      this.draw(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
-      this.draw(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+    canvas.addEventListener("touchmove", function (e) {
+      var touch = e.touches[0];
+      var mouseEvent = new MouseEvent("mousemove", {
+        clientX: touch.clientX,
+        clientY: touch.clientY
       });
-
-    canvas.addEventListener('touchmove', function(e){
-        e.preventDefault();
-        this.draw(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
-        this.draw(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
-      });
+      canvas.dispatchEvent(mouseEvent);
+    }, false);
 //mobile touch ends
 
     this.setState(
