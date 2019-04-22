@@ -29,6 +29,7 @@ class GuessList extends Component{
       })
       if(json.is_won){
          alert('We have a winner, thank you for playing.')
+         window.location = "https://yongliang24.github.io/pictionary-online/#/";
        }
     })
 
