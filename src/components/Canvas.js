@@ -105,8 +105,8 @@ class Canvas extends React.Component {
         (state) => {return {
           prevX: state.currX,
           prevY: state.currY,
-          currX: e.clientX - state.canvas.offsetLeft,
-          currY: e.clientY - state.canvas.offsetTop,
+          currX: e.Touch.clientX - state.canvas.offsetLeft,
+          currY: e.Touch.clientY - state.canvas.offsetTop,
           flag: true,
           dot_flag: true
         }},
@@ -130,8 +130,8 @@ class Canvas extends React.Component {
           return {
             prevX: state.currX,
             prevY: state.currY,
-            currX: e.clientX - state.canvas.offsetLeft,
-            currY: e.clientY - state.canvas.offsetTop,
+            currX: e.Touch.clientX - state.canvas.offsetLeft,
+            currY: e.Touch.clientY - state.canvas.offsetTop,
           }
         },
         () => {
@@ -195,6 +195,9 @@ class Canvas extends React.Component {
             onMouseUp={(event) => this.handleMouseMoves(event, 'up')}
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
 
+            ontouchstart={(event) => this.handleMouseMoves(event, 'down')}
+            ontouchmove={(event) => this.handleMouseMoves(event, 'move')}
+            ontouchend={(event) => this.handleMouseMoves(event, 'up')}
 
           />
           <button onClick={this.handleClear}>Reset</button>
@@ -205,9 +208,7 @@ class Canvas extends React.Component {
         <div className="canvas">
           <canvas
             ref={this.canvasRef}
-            ontouchstart={(event) => this.handleMouseMoves(event, 'down')}
-            ontouchmove={(event) => this.handleMouseMoves(event, 'move')}
-            ontouchend={(event) => this.handleMouseMoves(event, 'up')}
+
           />
         </div>
       )
