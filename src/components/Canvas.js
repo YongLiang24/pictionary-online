@@ -194,10 +194,8 @@ class Canvas extends React.Component {
             onMouseDown={(event) => this.handleMouseMoves(event, 'down')}
             onMouseUp={(event) => this.handleMouseMoves(event, 'up')}
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
-            
-            ontouchstart={(event) => this.handleMouseMoves(event, 'down')}
-            ontouchmove={(event) => this.handleMouseMoves(event, 'move')}
-            ontouchend={(event) => this.handleMouseMoves(event, 'up')}
+
+
           />
           <button onClick={this.handleClear}>Reset</button>
         </div>
@@ -207,6 +205,9 @@ class Canvas extends React.Component {
         <div className="canvas">
           <canvas
             ref={this.canvasRef}
+            ontouchstart={(event) => this.handleMouseMoves(event, 'down')}
+            ontouchmove={(event) => this.handleMouseMoves(event, 'move')}
+            ontouchend={(event) => this.handleMouseMoves(event, 'up')}
           />
         </div>
       )
