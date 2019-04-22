@@ -35,6 +35,19 @@ class Canvas extends React.Component {
     canvas.width = this.state.width;
     canvas.height = this.state.height;
 
+//mobile touch starts
+    canvas.addEventListener('touchstart', function(e){
+      this.draw(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+      this.draw(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+      });
+
+    canvas.addEventListener('touchmove', function(e){
+        e.preventDefault();
+        this.draw(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+        this.draw(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+      });
+//mobile touch ends
+
     this.setState(
       {canvas, ctx},
       // test data to fill the canvas w a rectangle
@@ -181,8 +194,11 @@ class Canvas extends React.Component {
 
     setTimeout(window.location.reload(), 2000)
   }
+//mobile draw start
+
 
   render() {
+
     if (this.props.isDrawing) {
       return (
         <div className="canvas">
