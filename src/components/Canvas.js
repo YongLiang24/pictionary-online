@@ -20,8 +20,8 @@ class Canvas extends React.Component {
       dot_flag: false,
       x: 'black',
       y: 2,
-      width: 370, // make this a prop
-      height: 400, // make this a prop
+      width: 350, // make this a prop
+      height: 350, // make this a prop
       emptyArray : []
     }
   }
@@ -78,6 +78,7 @@ class Canvas extends React.Component {
   }
 
   handleMouseMoves = (event, action) => {
+    event.preventDefault()
     event.persist()
     this.findxy(action, event)
   }
@@ -181,52 +182,6 @@ class Canvas extends React.Component {
 
     setTimeout(window.location.reload(), 2000)
   }
-//mobile draw start
-touchStart = (e) =>{
-  // e.preventDefault()
-  this.setState(
-    (state) => {return {
-      prevX: state.currX,
-      prevY: state.currY,
-      currX: e.clientX - state.canvas.offsetLeft,
-      currY: e.clientY - state.canvas.offsetTop,
-      flag: true,
-      dot_flag: true
-    }},
-    () => {
-      if (this.state.dot_flag) {
-        this.state.ctx.beginPath();
-        this.state.ctx.fillStyle = this.state.x;
-        this.state.ctx.fillRect(this.state.currX, this.state.currY, 2, 2);
-        this.state.ctx.closePath();
-        this.setState({dot_flag: false})
-      }
-    }
-  )
-}
-
-touchMove = (e)=>{
-  if(this.state.flag){
-    this.setState(
-      (state) => {
-        return {
-          prevX: state.currX,
-          prevY: state.currY,
-          currX: e.clientX - state.canvas.offsetLeft,
-          currY: e.clientY - state.canvas.offsetTop,
-        }
-      },
-      () => {
-        this.draw()
-      }
-    )
-  }
-}
-
-touchEnd = (e)=>{
-  this.setState({flag: false})
-  this.sendDrawData()
-}
 
   render() {
 
@@ -239,9 +194,10 @@ touchEnd = (e)=>{
             onMouseDown={(event) => this.handleMouseMoves(event, 'down')}
             onMouseUp={(event) => this.handleMouseMoves(event, 'up')}
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
-            ontouchstart={this.touchStart}
-            ontouchmove={this.touchMove}
-            ontouchend={this.touchEnd}
+            
+            ontouchstart={(event) => this.handleMouseMoves(event, 'down')}
+            ontouchmove={(event) => this.handleMouseMoves(event, 'move')}
+            ontouchend={(event) => this.handleMouseMoves(event, 'up')}
           />
           <button onClick={this.handleClear}>Reset</button>
         </div>
