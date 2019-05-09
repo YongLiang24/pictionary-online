@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
 const HEADERS = {'Content-Type': 'application/json', Accept: 'application/json'}
 class Canvas extends React.Component {
@@ -42,7 +42,7 @@ class Canvas extends React.Component {
         this.state.ctx.fillStyle = 'lightgray';
         this.state.ctx.fillRect(20, 20, this.state.canvas.width, this.state.canvas.height)}
     )
-     setInterval(this.intervalCanvasDraw, 2000)
+     setInterval(this.intervalCanvasDraw, 3000)
 
      const movement = {
        prevX: 1,
@@ -53,10 +53,6 @@ class Canvas extends React.Component {
        headers: HEADERS,
        body: JSON.stringify(movement)
      })
-     .then(resp => resp.json())
-     .then(json=>{
-       console.log('change currentGameId', json)
-     })
 
   }
 
@@ -64,7 +60,6 @@ class Canvas extends React.Component {
     fetch('https://pictionaries.herokuapp.com/canvas')
     .then(resp => resp.json())
     .then(json =>{
-      // console.log('the returned movement',json[0])
         for(let i=0; i < json[0].currXArray.length; i++) {
           this.state.ctx.beginPath();
           this.state.ctx.moveTo(json[0].prevXArray[i], json[0].prevYArray[i]);
@@ -100,7 +95,7 @@ class Canvas extends React.Component {
   }
 
   findxy = (mouseAction, e) => {
-    if (mouseAction == 'down') {
+    if (mouseAction === 'down') {
       this.setState(
         (state) => {return {
           prevX: state.currX,
@@ -120,11 +115,11 @@ class Canvas extends React.Component {
           }
         }
       )
-    } else if (mouseAction == 'up') {
+    } else if (mouseAction === 'up') {
         this.setState({flag: false})
         this.sendDrawData()
 
-    } else if (mouseAction == 'move' && this.state.flag) {
+    } else if (mouseAction === 'move' && this.state.flag) {
       this.setState(
         (state) => {
           return {
@@ -174,10 +169,6 @@ class Canvas extends React.Component {
       method: 'PATCH',
       headers: HEADERS,
       body: JSON.stringify(movement)
-    })
-    .then(resp => resp.json())
-    .then(json=>{
-      console.log('change currentGameId', json)
     })
 
     setTimeout(window.location.reload(), 2000)
@@ -238,10 +229,9 @@ class Canvas extends React.Component {
             onMouseDown={(event) => this.handleMouseMoves(event, 'down')}
             onMouseUp={(event) => this.handleMouseMoves(event, 'up')}
             onMouseOut={(event) => this.handleMouseMoves(event, 'out')}
-
-            ontouchstart={this.handleTouchStart}
-            ontouchmove={this.handleTouchMove}
-            ontouchend={this.handleTouchEnd}
+            onTouchStart={this.handleTouchStart}
+            onTouchMove={this.handleTouchMove}
+            onTouchEnd={this.handleTouchEnd}
 
           />
           <br/>

@@ -30,11 +30,9 @@ class App extends Component {
                 <div>
                   <Canvas isDrawing={true} />
                   <GuessList />
-
                 </div>
               )}
             />
-
             <Route path="/guess"
               render={(props)=>(
                 <div>

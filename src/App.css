@@ -38,3 +38,8 @@ body{
 .canvas{
   text-align: center;
 }
+
+#home_article{
+  font-size: 1.2em;
+  font-weight: bold;
+}

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 const HEADERS = {'Content-Type': 'application/json', Accept: 'application/json'}
 
 class GuessList extends Component{
