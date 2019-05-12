@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Play this pictionary at https://yongliang24.github.io/pictionary-online/
+
 ## Available Scripts
 
 In the project directory, you can run:
